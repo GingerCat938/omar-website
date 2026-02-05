@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <!-- script per eseguire subito lo script ed evitare flash di cambio luce dark mode -->
+    <script>
+  (function() {
+    try {
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const savedTheme = localStorage.getItem('dark-mode');
+      const useDark = savedTheme === 'dark' || (!savedTheme && prefersDark);
+      if (useDark) {
+        document.documentElement.classList.add('dark-mode');
+      }
+    } catch(e) {}
+  })();
+</script>
+<!-- Meta Tags -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Portfolio di uno studente LM-43: carriera accademica, progetti digitali, musica, lingue e sviluppo web.">
+  <meta name="keywords" content="Studente LM-43, Scienze del testo, Portfolio, Web Development, Lingue, Musica, Python, HTML, CSS">
+  <title>Progetti & Studio – Omar Batnini</title>
+
+<!-- Bootstrap & Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/style.css">
+
+<!-- Favicon O con fulmine e link per adattare a schermi e device -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" href="/favicons/favicon.ico" type="image/x-icon">
+
+<!--Libreria open-source Font awesome per icone-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+
+<!-- OG Tags -->
+  <meta property="og:title" content="Portfolio - Omar Batnini">
+  <meta property="og:site_name" content="Portfolio accademico di Omar Batnini">
+  <meta property="og:url" content="https://omar_batnini.it">
+  <meta property="og:description" content="Lingue, web design, contenuti multimediali e musica. Un percorso creativo e digitale.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://omar_batnini.it/preview.jpg">
+
+<!--libreria AOS per animazioni -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+</head>
+
+<body id="top" data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="70" tabindex="0">
+<!-- Bottone Dark Mode -->
+    <button id="theme-toggle" class="d-flex align-items-center ms-3">
+        <i class="bi bi-brightness-high me-2"></i>
+        <span class="theme-label">Tema scuro</span>
+    </button>
+<!-- Navbar -->
+<nav id="navbar" class="navbar navbar-expand-lg navbar-light shadow-sm py-3">
+  <div class="container">
+
+    <!-- Brand -->
+    <a class="navbar-brand fw-bold" href="index.html#hero">Omar Batnini</a>
+
+    <!-- Bottone hamburger -->
+    <button class="navbar-toggler  ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Menu navigazione -->
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" href="index.html#hero">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html#bio">About me</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html#progetti-interattivi">Sviluppi</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html#cv">CV</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html#contatti">Contatti</a></li>
+      </ul>
+    </div>
+
+  </div>
+</nav>
+
+<main>
+
+<!-- Hero -->
+<section class="py-5 text-center">
+  <div class="container">
+    <h1 class="fw-bold">Progetti & Studio</h1>
+    <p class="lead">Crescere ogni giorno, indipendentemente dal ruolo che ricopriamo.</p>
+    <div class="card">
+    <p class="mx-auto" style="max-width: 800px;">
+      Questa sezione raccoglierà presto i miei <strong>progetti digitali</strong>, <strong>strumenti creativi</strong> e <strong>contenuti interattivi</strong>.
+Nel frattempo, puoi sfruttare il tempo per <strong>studiare con me</strong>: avvia il cronometro e dedica qualche minuto alla tua <em>crescita personale o accademica</em>.
+    </p>
+    </div>
+  </div>
+</section>
+
+<!-- Cronometro countdown Pomodoro Technique 25 min -->
+<section class="container text-center my-5">
+  <h2 class="fw-bold mb-4 text-orange">Studia con me</h2>
+  <p class="fs-5"> <big><strong>Tecnica del Pomodoro:</strong></big> <strong>25 minuti</strong> di focus per <em>crescere ogni giorno</em>.</p>
+  
+  <div class="pomodoro-wrapper d-inline-block my-4">
+    <i class="fas fa-apple-alt fa-2x mb-3 text-orange"></i>
+    <div id="pomodoro-timer" class="pomodoro-timer">25:00</div>
+  </div>
+
+  <div class="d-flex justify-content-center gap-3 mt-3 flex-wrap">
+    <button onclick="startPomodoro()" class="btn-pomodoro">
+      <i class="fas fa-play"></i> Avvia
+    </button>
+    <button onclick="pausePomodoro()" class="btn-pomodoro">
+      <i class="fas fa-pause"></i> Pausa
+    </button>
+    <button onclick="resetPomodoro()" class="btn-pomodoro">
+      <i class="fas fa-rotate-left"></i> Reset
+    </button>
+  </div>
+</section>
+
+<!-- Link ad altre passioni con card-->
+<section class="container text-center my-5">
+  <h2 class="fw-bold mb-4">Esplora anche:</h2>
+  <div class="row justify-content-center g-4">
+    <div class="col-md-3 col-6">
+      <a href="piano.html" class="card-link d-block p-3 rounded shadow-sm h-100 text-decoration-none">
+        <i class="bi bi-music-note-beamed fs-1 text-orange"></i>
+        <h5 class="mt-2">Pianoforte</h5>
+      </a>
+    </div>
+    <div class="col-md-3 col-6">
+      <a href="lingue.html" class="card-link d-block p-3 rounded shadow-sm h-100 text-decoration-none">
+        <i class="bi bi-translate fs-1 text-orange"></i>
+        <h5 class="mt-2">Lingue</h5>
+      </a>
+    </div>
+    <div class="col-md-3 col-6">
+      <a href="escursioni.html" class="card-link d-block p-3 rounded shadow-sm h-100 text-decoration-none">
+        <i class="bi bi-tree fs-1 text-orange"></i>
+        <h5 class="mt-2">Escursioni</h5>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!--rinvio ai social con "Seguimi anche su"-->
+<section class="follow-card text-center my-5">
+  <div class="follow-box mx-auto">
+    <h2 class="fw-bold mb-4">Seguimi anche su</h2>
+    <div class="d-flex justify-content-center gap-4 flex-wrap">
+      <div class="social-icon-group">
+        <a href="https://instagram.com/omar_batnini" target="_blank" class="text-decoration-none text-dark-mode-aware">
+          <i class="bi bi-instagram fs-1"></i>
+          <div class="social-label">Instagram</div>
+        </a>
+      </div>
+      <div class="social-icon-group">
+        <a href="https://tiktok.com/@omarbatnini" target="_blank" class="text-decoration-none text-dark-mode-aware">
+          <i class="bi bi-tiktok fs-1"></i>
+          <div class="social-label">TikTok</div>
+        </a>
+      </div>
+      <div class="social-icon-group">
+          <a href="https://www.linkedin.com/in/omarbatnini" target="_blank" class="text-decoration-none text-dark-mode-aware">
+        <i class="bi bi-linkedin fs-1"></i>
+        <div class="social-label">LinkedIn</div>
+          </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Citazione random -->
+<section class="text-center my-5">
+  <blockquote class="random-citazione mx-auto">
+    <i class="bi bi-quote fs-2 text-secondary d-block mb-2"></i>
+    <p id="random-quote"></p>
+  </blockquote>
+</section>
+
+<!-- Separatore visivo -->
+<hr class="my-5">
+
+<!-- Riferimento ai contatti -->
+<section class="container text-center my-5">
+  <h2 class="fs-5">
+    Vuoi saperne di più o condividere pensieri? <a href="index.html#contatti" class="btn btn-outline-orange ms-2">Contattami</a>
+  </h2>
+</section>
+
+<!-- Torna su -->
+<section class="text-center">
+  <p class="text-center small mt-4">
+    <a href="#top" class="text-decoration-none"><u>Torna su</u> ↑</a>
+  </p>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <hr class="hr-dark-mode">
+  <div class="container">
+    <!-- Frase -->
+    <div class="row">
+      <div class="col-12">
+        <p class="lead small footer-quote">Vivere, imparare, migliorarsi – ogni giorno un 1% in più.</p>
+      </div>
+    </div>
+
+<!-- Social -->
+  <div class="row mb-2">
+    <div class="col-12">
+      <div class="d-flex justify-content-center gap-3">
+        <a href="https://instagram.com/omar_batnini" target="_blank"><i class="bi bi-instagram footer-icon"></i></a>
+        <a href="https://tiktok.com/@omarbatnini" target="_blank"><i class="bi bi-tiktok footer-icon"></i></a>
+        <a href="https://www.linkedin.com/in/omar-batnini-01b618172/" target="_blank"><i class="bi bi-linkedin footer-icon"></i></a>
+      </div>
+    </div>
+  </div>
+
+    <!-- Navigazione -->
+    <div class="row">
+      <div class="col-12">
+        <ul class="list-inline small mb-1">
+          <li class="list-inline-item mx-2"><a href="index.html#hero" class="footer-link">Home</a></li>
+          <li class="list-inline-item mx-2"><a href="index.html#bio" class="footer-link"><i>About me</i></a></li>
+          <li class="list-inline-item mx-2"><a href="index.html#cv" class="footer-link">CV</a></li>
+          <li class="list-inline-item mx-2"><a href="index.html#contatti" class="footer-link">Contatti</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Banda finale -->
+  <div class="footer-bottom">
+    © 2025 Omar Batnini ◊ Tutti i diritti riservati.
+  </div>
+</footer>
+
+<!-- Script Bootstrap + Tema -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/quotes.js"></script>
+
+<!-- Scrollspy dopo aver caricato Bootstrap script -->
+<script>
+  const scrollSpy = new bootstrap.ScrollSpy(document.body, {
+    target: '#navbar',
+    offset: 70
+  });
+</script>
+
+<!-- Tema Dark mode -->
+<script>
+const themeToggle = document.getElementById('theme-toggle');
+
+if (themeToggle) {
+    const icon = themeToggle.querySelector('i');
+    const label = themeToggle.querySelector('.theme-label');
+
+    const savedTheme = localStorage.getItem('dark-mode');
+    if (savedTheme === 'true') {
+        document.body.classList.add('dark-mode');
+    }
+
+    function updateThemeIcon() {
+        const isDark = document.body.classList.contains('dark-mode');
+        icon.className = isDark ? 'bi bi-moon me-2' : 'bi bi-brightness-high me-2';
+        if (label) {
+            label.textContent = isDark ? 'Tema chiaro' : 'Tema scuro';
+        }
+    }
+
+    themeToggle.addEventListener('click', () => {
+        const isDark = document.body.classList.toggle('dark-mode');
+        localStorage.setItem('dark-mode', isDark);
+        updateThemeIcon();
+    });
+
+    updateThemeIcon();
+}
+</script>
+
+<!-- Pomodoro Timer -->
+<script>
+let pomodoroDuration = 25 * 60;
+let timerInterval;
+let remainingTime = pomodoroDuration;
+let isRunning = false;
+
+function updatePomodoroDisplay() {
+    const minutes = Math.floor(remainingTime / 60).toString().padStart(2, '0');
+    const seconds = (remainingTime % 60).toString().padStart(2, '0');
+    const timerEl = document.getElementById('pomodoro-timer');
+    if (timerEl) {
+        timerEl.textContent = `${minutes}:${seconds}`;
+    }
+}
+
+function startPomodoro() {
+    if (isRunning) return;
+    isRunning = true;
+    timerInterval = setInterval(() => {
+        if (remainingTime > 0) {
+            remainingTime--;
+            updatePomodoroDisplay();
+        } else {
+            clearInterval(timerInterval);
+            isRunning = false;
+            alert("Pomodoro completato! Fai una pausa.");
+            if ('vibrate' in navigator) navigator.vibrate([200, 100, 200]);
+        }
+    }, 1000);
+}
+
+function pausePomodoro() {
+    clearInterval(timerInterval);
+    isRunning = false;
+}
+
+function resetPomodoro() {
+    clearInterval(timerInterval);
+    remainingTime = pomodoroDuration;
+    isRunning = false;
+    updatePomodoroDisplay();
+}
+
+updatePomodoroDisplay();
+</script>
+
+<!-- Inserisci citazioni random -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const randomQuote = document.getElementById('random-quote');
+    
+    if (randomQuote) {
+        const quote = getRandomQuote();
+        randomQuote.innerHTML = `"${quote.testo}"<br><footer class="blockquote-footer">${quote.autore}</footer>`;
+    }
+});
+</script>
+
+<!-- Fix dark-mode apple + timer -->
+<style>
+.dark-mode .pomodoro-wrapper .fa-apple-alt {
+  color: black !important;
+}
+.dark-mode .pomodoro-timer {
+  background-color: #1e293b;
+  color: #f8fafc;
+}
+</style>
+
+</body>
+</html>

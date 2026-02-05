@@ -1,0 +1,814 @@
+/* =======================================
+   VARIABILI CSS E COLORI BASE
+======================================= */
+
+:root {
+  --primary-bg: #334155;                  /* Grigio-blu profondo (sfondo generale) */
+  --primary-text: #1e293b;                /* Testo primario scuro */
+  --accent-color: #c2410c;                /* Arancione bruciato (bottoni, titoli) */
+  --accent-color-light: #fca96a;          /* Arancione chiaro (hover, ombreggiature) */
+  --secondary-accent-color: #2563eb;      /* Blu vivo per link/icone */
+  --navbar-bg: #9a3412;                   /* Marrone-arancio scuro (navbar) */
+  --card-bg: #ffffff;                     /* Bianco */
+  --card-shadow: rgba(0, 0, 0, 0.08);     /* Ombra soft */
+  --dark-bg: #0f172a;                     /* Sfondo dark mode */
+  --light-text: #f1f5f9;                  /* Testo chiaro su sfondo scuro */
+  --dark-card: #1e293b;                   /* Card in dark mode */
+  --dark-border: #334155;                 /* Bordo visibile ma soft */
+  --accent-color-dark: #9a3412;           /* Variante più scura dell'accent */
+  --bg-main: #f8fafc;                     /* Sfondo chiaro uniforme */
+  --section-bg: #f1f5f9;                  /* Sezioni alternate */
+}
+
+
+
+/* =======================================
+   BODY E FONT BASE
+======================================= */
+/* =======================================
+   Scorrimento fluido tra i link interni con ancoraggio e smooth scrolling
+======================================= */
+html {
+  scroll-behavior: smooth;
+}
+html.dark-mode {
+  --primary-bg: #0f172a;
+  --primary-text: #f1f5f9;
+  /* Altre variabili per la modalità scura */
+}
+
+html.light-mode {
+  --primary-bg: #f8fafc;
+  --primary-text: #1e293b;
+  /* Altre variabili per la modalità chiara */
+}
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--bg-main);
+  color: var(--primary-text);
+  transition: background-color 0.4s ease, color 0.4s ease;
+/*aggiunto per il footer che non stava giù con poco contenuto in progetti.html*/
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  /* Per far funzionare scrollspy */
+    position: relative;
+
+}
+main {
+  flex: 1;
+}
+
+/* =======================================
+   HEADER E IMMAGINE PROFILO
+======================================= */
+header {
+  display: flex;
+  align-items: center;
+  padding: 2rem;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+header img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--accent-color);
+}
+
+.intro {
+  max-width: 600px;
+}
+
+/* =======================================
+   TITOLI
+======================================= */
+h1, h2, h3, h5 {
+  color: var(--navbar-bg);
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+/* =======================================
+   NAVBAR
+======================================= */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1030;
+  background-color: var(--navbar-bg);
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.navbar a {
+  color: white !important;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.navbar a:hover {
+  text-decoration: underline;
+}
+/*per il bottone dark mode*/
+.navbar #theme-toggle {
+  background-color: var(--navbar-bg);
+  color: var(--light-text);
+  border: none;
+}
+.navbar #theme-toggle:hover {
+  background-color: var(--accent-color-dark);
+}
+/* =======================================
+   NAVBAR SCROLLSPY : ma non funziona, tolto id="nav" e altro
+   .navbar-nav .nav-link.active {
+  color: var(--accent-color-light) !important;
+  border-bottom: 2px solid var(--accent-color-light);
+}
+======================================= */
+
+
+/* =======================================
+   HERO SECTION*/
+.hero-section {
+  position: relative;
+  background-image: url('../img/home/hero-bg.jpg'); /* URL dell'immagine di sfondo hero */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: var(--primary-text);
+}
+
+.hero-section h1,
+.hero-section .lead {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  
+}
+
+.lead {
+  color: var(--accent-color); 
+}
+
+.hero-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4); /* ombra sopra l'immagine */
+  z-index: 0;
+}
+.hero-section .container {
+  position: relative;
+  z-index: 1;
+}
+/* =======================================
+   IMMAGINE PROFILO*/
+   .profile-pic {
+    width: 100%;
+    max-width: 260px;
+    height: auto;
+    aspect-ratio: 1/1;
+    border-radius: 20px;
+    border: 4px solid var(--accent-color);
+    object-fit: cover;
+    object-position: center top;
+    margin-right: 0;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  }
+  .profile-pic:hover {
+  transform: scale(1.03);
+  transition: transform 0.3s ease;
+}
+/* =======================================
+   SEZIONE BIO
+======================================= */
+#bio {
+  box-shadow: 0 4px 12px var(--card-shadow);
+  border-radius: 1rem;
+  padding: 2rem;
+  background-color: var(--card-bg);
+  margin: 2rem auto;
+  max-width: 900px;
+}
+
+/* =======================================
+   CARD GENERICA (COMPETENZE E CV)
+======================================= */
+.card {
+  background-color: var(--card-bg);
+  box-shadow: 0 4px 6px var(--card-shadow);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  margin: 2rem auto;
+  max-width: 900px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+/* =======================================
+   CAROUSEL
+   =======================================*/
+/* Stili comuni per entrambi i caroselli */
+.carousel-custom {
+  background-color: var(--section-bg);
+  padding: 1rem;
+  border-radius: 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.carousel-custom .carousel-item img {
+  max-height: 480px; /* Altezza più contenuta */
+  width: auto;
+  max-width: 100%;
+  object-fit: contain; /* Lascia margini laterali come in lingue.html */
+  display: block;
+  margin: 0 auto;
+}
+/* Mettiamo le freccette laterali su sfondo bianco e le inseriamo in svg*/
+.carousel-custom .carousel-control-prev-icon,
+.carousel-custom .carousel-control-next-icon {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%231e293b' viewBox='0 0 16 16'%3E%3Cpath d='M8.354 1.146a.5.5 0 0 0-.708 0L2.5 6.293a.5.5 0 0 0 0 .707L7.646 12.5a.5.5 0 0 0 .708-.707L3.207 7.5H13.5a.5.5 0 0 0 0-1H3.207l4.147-4.293a.5.5 0 0 0 0-.707z'/%3E%3C/svg%3E");
+}
+/* =======================================
+   LISTE E TESTO
+======================================= */
+ul {
+  padding-left: 1.2rem;
+}
+/*Citazione Random PHP*/
+.random-citazione {
+  font-style: italic;
+  font-size: 1.1rem;
+  padding: 1.5rem;
+  text-align: center;
+  margin: 4rem auto 2rem;
+  max-width: 750px;
+  border-radius: 0.5rem;
+  background-color: var(--section-bg);
+  color: var(--accent-color-dark);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+}
+/* ==========================================
+  Per aumentare leggermente visibilità con altezza linea*/
+.random-citazione {
+  line-height: 1.6;
+}
+/* =======================================
+   ICONE E IMMAGINI
+======================================= */
+.icon-style {
+  max-width: 100px;
+  height: auto;
+  margin-bottom: 1rem;
+  display: inline-block;
+  transition: transform 0.3s ease; /* aggiunto per animazione */
+}
+
+.icon-style:hover {
+  transform: scale(1.05); /* zoom leggero al passaggio del mouse */
+}
+
+/*ingrandimento immagini e altre caratteristiche*/
+img {
+  transition: transform 0.3s ease;
+}
+.img-fluid {
+  width: 100%;
+  height: auto;
+}
+.row.text-center img {
+  width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.row.text-center img:hover {
+  transform: scale(1.03);
+}
+.esplora-icon {
+  color: var(--accent-color); /* Arancione personalizzato */
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+/*sollevamento icone e cambio colo al passaggio*/
+.esplora-icon:hover {
+  transform: translateY(-6px); /* Verso l’alto */
+  color: var(--accent-color-light); /* Variante più chiara */
+}
+/* =======================================
+   TOGGLE DARK MODE BUTTON
+======================================= */
+/* =======================================
+   STILE UNIFICATO PER TUTTI I BOTTONI
+   (compresi toggle e pulsanti principali)
+   Effetto hover + focus con ingrandimento
+========================================= */
+.btn,
+.toggle-button{
+  display: inline-block;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  background-color: var(--accent-color);
+  color: white;
+  border-radius: 1.5rem;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+  text-decoration: none;
+}
+
+.btn:hover,
+.btn:focus,
+.btn:active,
+.toggle-button:hover,
+.toggle-button:focus,
+.toggle-button:active{
+  background-color: var(--accent-color-dark);
+  color: white;
+  transform: scale(1.05);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  outline: none;
+}
+/* rendiamo anche accessibile via tastiera il sito, e navighiamo tra i bottoni con Tab!*/
+.btn:focus-visible {
+  outline: 3px solid var(--secondary-accent-color);
+  outline-offset: 2px;
+}
+/*CSS per il cronometro di studio in progetti*/
+.study-timer-display {
+  font-size: 2.5rem;
+  font-weight: bold;
+  padding: 1rem 2rem;
+  background-color: var(--section-bg);
+  color: var(--accent-color-dark);
+  border-radius: 1rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  display: inline-block;
+}
+
+.btn-timer {
+  background-color: var(--secondary-accent-color);
+  color: white;
+  border: none;
+  padding: 0.6rem 1.4rem;
+  font-weight: bold;
+  border-radius: 1rem;
+  margin: 0.5rem;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.btn-timer:hover {
+  transform: scale(1.05);
+  background-color: #1d4ed8; /* più scuro */
+}
+
+.pomodoro-timer {
+  font-size: 3.5rem;
+  font-weight: bold;
+  background-color: #fff;
+  color: var(--accent-color);
+  padding: 1rem 2rem;
+  border-radius: 2rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.pomodoro-wrapper {
+  background: var(--card-bg);
+  border: 3px dashed var(--accent-color);
+  padding: 2rem 2.5rem;
+  border-radius: 30px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.btn-pomodoro {
+  background-color: var(--secondary-accent-color);
+  color: white;
+  font-weight: bold;
+  font-size: 1.3rem;
+  padding: 1rem 2.5rem;
+  border: none;
+  border-radius: 2rem;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease, box-shadow 0.25s ease;
+  min-width: 170px; /* larghezza minima per coerenza */
+}
+
+.btn-pomodoro:hover {
+  transform: scale(1.06);
+  background-color: #1e40af;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+/* =======================================
+   Immagine Gatto
+======================================= */
+.gatto-profilo {
+  max-width: 320px;
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 1rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.gatto-profilo:hover {
+  transform: scale(1.03);
+}
+/*Per la citazioni*/
+.citazione {
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--primary-text);
+  max-width: 600px;
+  padding: 1.5rem;
+  border-left: 4px solid var(--accent-color);
+  background-color: transparent;
+}
+/*Per la card con i link ad altri progetti*/
+
+.card-link {
+  background-color: var(--card-bg);
+  color: var(--primary-text);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-link:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  color: var(--accent-color);
+  text-decoration: none;
+}
+
+.card-link i {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+
+/* =======================================
+   SOCIAL ICONS
+======================================= */
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.social-links a {
+  color: var(--accent-color);
+  font-size: 1.5rem;
+  text-decoration: none;
+}
+
+/* =======================================
+   FOOTER
+======================================= */
+.site-footer {
+  background-color: #000 !important;
+  color: var(--light-text);
+  text-align: center;
+  margin-top: 0px;
+  margin-bottom: 0;
+}
+
+.site-footer .footer-quote {
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+}
+
+.footer-icon {
+  font-size: 1.5rem;
+  color: var(--light-text);
+}
+
+.footer-icon:hover {
+  color: var(--accent-color);
+}
+
+.footer-link {
+  color: var(--light-text);
+  text-decoration: none;
+}
+
+.footer-link:hover {
+  color: var(--accent-color);
+}
+
+.footer-bottom {
+  background-color: #1a1a1a;
+  color: var(--light-text);
+  font-size: 0.85rem;
+  padding: 10px 0;
+  margin-top: 10px;
+}
+/* =======================================
+   SOCIAL ICONS
+======================================= */
+.social-icon-link {
+  color: var(--primary-bg);
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-icon-link:hover {
+  color: var(--secondary-accent-color);
+  transform: scale(1.1);
+}
+/*Bottone in dark mode con scritta in basso a destra*/
+#theme-toggle {
+  position: fixed;
+  bottom: 1.2rem;
+  right: 1.2rem;
+  z-index: 1000;
+  padding: 0.8rem 1.4rem;
+  background-color: var(--accent-color);
+  color: white;
+  border: none;
+  border-radius: 1.2rem;
+  font-weight: 600;
+  font-size: 1rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#theme-toggle:hover {
+  transform: scale(1.06);
+  background-color: var(--accent-color-dark);
+}
+/*"icone e sezione finale "Seguimi anche su"*/
+.social-icon-group {
+  text-align: center;
+  margin: 0 1rem;
+}
+
+.social-label {
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--primary-text);
+}
+/*Banner nero per evidenziare social a fine pagina*/
+.follow-box {
+  background-color: var(--card-bg);
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+  max-width: 850px;
+}
+
+.follow-box h2 {
+  color: var(--navbar-bg);
+}
+
+.follow-box i {
+  transition: transform 0.3s ease;
+}
+
+.follow-box a i {
+  transition: transform 0.3s ease;
+}
+
+.follow-box a:hover i {
+  transform: translateY(+6px);
+}
+/*i link al passaggio o focus hanno underlining*/
+a:hover,
+a:focus {
+  text-decoration: underline;
+}
+/* =======================================
+   DARK MODE
+======================================= */
+
+body.dark-mode .text-muted,
+body.dark-mode {
+  background-color: var(--dark-bg) !important;
+  color: var(--light-text);
+}
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode a,
+body.dark-mode ul{
+  color: var(--accent-color-light);
+}
+body.dark-mode h3 {
+  color: var(--accent-color) !important;
+}
+body.dark-mode h5 {
+  color: var(--secondary-accent-color);
+}
+body.dark-mode li
+  {
+    color: var(--light-text);
+  }
+
+
+body.dark-mode .card,
+body.dark-mode #bio,
+body.dark-mode .form-control {
+  background-color: var(--dark-card);
+  color: var(--light-text) !important;
+}
+body.dark-mode #carousel {
+  background-color: #1a1a1a; /* O un grigio scuro elegante */
+}
+body.dark-mode input,
+body.dark-mode textarea,
+body.dark-mode select {
+  background-color: var(--dark-card);
+  color: var(--light-text);
+  border: 1px solid var(--dark-border);
+}
+body.dark-mode .lead {
+  color: var(--light-text);
+}
+
+
+body.dark-mode nav {
+  background-color: var(--accent-color-dark);
+}
+
+body.dark-mode nav a {
+  color: var(--accent-color-light);
+}
+body.dark-mode .hero-section {
+  background-color: #1a1a1a; /* fallback scuro se non vuoi immagine */
+  color: var(--accent-color);
+}
+
+body.dark-mode .bi:hover {
+  color: var(--secondary-accent-color)
+}
+/** =======================================
+   FORM E INPUT
+======================================= */
+body.dark-mode input,
+body.dark-mode textarea,
+body.dark-mode .form-control {
+  background-color: #2a2a2a; /* grigio scuro elegante */
+  color: #f0f0f0; 
+  border: 1px solid #555; 
+}
+/* =======================================
+   PLACEHOLDER TEXT
+======================================= */
+body.dark-mode ::placeholder{
+  color: var(--secondary-accent-color);
+  opacity: 0.9; /* Opacità del placeholder */
+}
+
+/* Colore più chiaro per il titolo solo in light mode */
+body:not(.dark-mode) .hero-section h1.display-4 {
+  color: #ffffff;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9);
+  font-weight: 900;
+}
+
+/* DARK MODE: Sempre bianco con ombra molto scura */
+body.dark-mode .hero-section h1.display-4 {
+  color: #e5e7eb; /* Grigio chiaro */ 
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.9);
+  font-weight: 900;
+}
+
+/* Colore bianco e ombra per il paragrafo lead solo in light mode */
+body:not(.dark-mode) .hero-section .lead {
+  color: #ffffff;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.9);
+}
+body.dark-mode .btn {
+  color: white;
+}
+
+
+/*citazione classica in dark mode*/
+body.dark-mode .citazione {
+  color: var(--light-text);
+  border-left-color: var(--accent-color-light);
+}
+/* Citazione random e modalità dark*/
+body.dark-mode .random-citazione {
+  background-color: #1e293b;
+  color: var(--accent-color-light);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.08);
+}
+/* Cronometro di studio in real time e modalità dark*/
+
+
+body.dark-mode .study-timer-display {
+  background-color: var(--dark-card);
+  color: var(--accent-color-light);
+}
+/*Card con altri progetti*/
+body.dark-mode .shadow-sm.bg-white {
+  background-color: var(--dark-card);
+  color: var(--light-text);
+}
+
+/*etichette dark mode dei social "Seguimi anche su"*/
+body.dark-mode .social-label {
+  color: var(--light-text);
+}
+
+body.dark-mode .follow-box {
+  background-color: var(--dark-card);
+  color: var(--light-text);
+}
+.hr-dark-mode {
+  display: none; /* nascosta di default */
+  border: none;
+}
+
+body.dark-mode .hr-dark-mode {
+  display: block;
+  max-width: 100%;
+}
+/*Card link "Esplora anche" grigie in dark mode*/
+body.dark-mode .card-link {
+  background-color: #1e293b; /* grigio elegante */
+  color: var(--primary-text); /* mantiene il colore originale */
+  box-shadow: 0 6px 12px rgba(255, 255, 255, 0.05);
+}
+
+/*carousel grigio in dark-mode*/
+
+body.dark-mode .carousel-custom {
+  background-color: #1e293b; /* grigio-blu scuro elegante */
+  border-radius: 1rem;
+  box-shadow: 0 6px 12px rgba(255, 255, 255, 0.04);
+}
+/*con frecce svg arancioni in carousel in dark-mode*/
+body.dark-mode .carousel-control-prev-icon,
+body.dark-mode .carousel-control-next-icon {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fca96a' viewBox='0 0 16 16'%3E%3Cpath d='M8.354 1.146a.5.5 0 0 0-.708 0L2.5 6.293a.5.5 0 0 0 0 .707L7.646 12.5a.5.5 0 0 0 .708-.707L3.207 7.5H13.5a.5.5 0 0 0 0-1H3.207l4.147-4.293a.5.5 0 0 0 0-.707z'/%3E%3C/svg%3E");
+}
+/*icone arancioni in dark mode*/
+body.dark-mode .follow-box a i.bi {
+  color: var(--navbar-bg) !important;
+}
+
+body.dark-mode .follow-box a:hover i.bi {
+  color: var(--accent-color-dark) !important;
+}
+
+/* 2. Sezione "Esplora anche" - mantieni colore icona */
+body.dark-mode .card-link i {
+  color: var(--accent-color); 
+}
+/* colore arancione al passaggio hover in dark mode "Seguimi anche su" */
+body.dark-mode .follow-box a i.bi:hover {
+  color: var(--accent-color-light) !important; /* Arancione chiaro solo su hover in dark mode */
+}
+/* 3. Mantieni testo delle etichette social in bianco */
+body.dark-mode .social-label {
+  color: var(--light-text)!important;
+}
+/* =======================================
+   RESPONSIVE
+======================================= */
+@media (max-width: 768px) {
+  /* contenuti per tablet o piccoli laptop */
+  header {
+    flex-direction: column;
+    align-items: center;
+  }
+  .icon-style {
+    max-width: 80px;
+  }
+  header img {
+    width: 120px;
+    height: 120px;
+  }
+  .intro {
+    text-align: center;
+  }
+  nav {
+    flex-direction: column;
+    align-items: center;
+  }
+  #bio,
+  .card {
+    margin: 1rem;
+    padding: 1.2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .container.my-5 {
+    margin-top: 1.5rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+}

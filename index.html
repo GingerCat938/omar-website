@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <!-- script per eseguire subito lo script ed evitare flash di cambio luce dark mode -->
+    <script>
+  (function() {
+    try {
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const savedTheme = localStorage.getItem('dark-mode');
+      const useDark = savedTheme === 'dark' || (!savedTheme && prefersDark);
+      if (useDark) {
+        document.documentElement.classList.add('dark-mode');
+      }
+    } catch(e) {}
+  })();
+</script>
+<!-- Meta Tags -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Portfolio di uno studente LM-43: carriera accademica, progetti digitali, musica, lingue e sviluppo web.">
+  <meta name="keywords" content="Studente LM-43, Scienze del testo, Portfolio, Web Development, Lingue, Musica, Python, HTML, CSS">
+  <title>Portfolio – Omar Batnini</title>
+
+<!-- Bootstrap & Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/style.css">
+
+<!-- Favicon O con fulmine e link per adattare a schermi e device -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" href="/favicons/favicon.ico" type="image/x-icon">
+
+<!--Libreria open-source Font awesome per icone-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+
+<!-- OG Tags -->
+  <meta property="og:title" content="Portfolio - Omar Batnini">
+  <meta property="og:site_name" content="Portfolio accademico di Omar Batnini">
+  <meta property="og:url" content="https://omar_batnini.it">
+  <meta property="og:description" content="Lingue, web design, contenuti multimediali e musica. Un percorso creativo e digitale.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://omar_batnini.it/preview.jpg">
+
+<!--libreria AOS per animazioni -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+</head>
+
+<body id="top" data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="70" tabindex="0">
+<!-- Bottone Dark Mode -->
+    <button id="theme-toggle" class="d-flex align-items-center ms-3">
+        <i class="bi bi-brightness-high me-2"></i>
+        <span class="theme-label">Tema scuro</span>
+    </button>
+<!-- Navbar -->
+<nav id="navbar" class="navbar navbar-expand-lg navbar-light shadow-sm py-3">
+  <div class="container">
+
+    <!-- Brand -->
+    <a class="navbar-brand fw-bold" href="index.html#hero">Omar Batnini</a>
+
+    <!-- Bottone hamburger -->
+    <button class="navbar-toggler  ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Menu navigazione -->
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" href="index.html#hero">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html#bio">About me</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html#progetti-interattivi">Sviluppi</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html#cv">CV</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html#contatti">Contatti</a></li>
+      </ul>
+    </div>
+
+  </div>
+</nav>
+
+<main>
+
+<!-- Hero Section -->
+<section id="hero" class="py-5 hero-section text-center">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-6 text-md-start order-2 order-md-1">
+        <h1 class="display-4 fw-bold">Benvenuto nel mio spazio digitale</h1>
+        <p class="lead" id="hero-quote"></p>
+        <a href="#bio" class="btn btn-outline-orange mt-3">Scopri di più</a>
+      </div>
+      <div class="col-md-6 text-center text-md-end order-1 order-md-2">
+        <img src="./img/home/profile-pic.png" alt="Foto di Omar Batnini, studente di LM-43, pianista e responsabile del sito" class="profile-pic" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Sezione Bio -->
+<section id="bio" class="card">
+  <h2>Chi sono</h2>
+  <p>
+    Mi chiamo <strong>Omar Batnini</strong> e sono uno studente della <strong>Laurea Magistrale in Scienze del Testo per le Professioni Digitali</strong>. Coltivo da sempre una passione per le <strong>lingue</strong>, la <strong>musica</strong> e la <strong>tecnologia</strong>. Ho studiato <strong>pianoforte</strong> presso il Conservatorio, un'esperienza che ha arricchito la mia formazione musicale.
+    <br>
+    Suono da oltre dieci anni, parlo <strong>spagnolo</strong>, <strong>inglese</strong> e <strong>tedesco</strong>, e credo che comunicare significhi anche saper ascoltare il mondo in tutte le sue sfumature. Questo è uno spazio personale dove condivido il mio percorso tra parole, suoni e codice.
+  </p>
+</section>
+
+<section id="progetti-interattivi" class="container my-5">
+  <h2 class="text-center fw-bold mb-4">Esplora i miei progetti</h2>
+  <div class="row g-4 justify-content-center">
+    <div class="col-md-4 text-center">
+      <a href="piano.html" class="text-decoration-none">
+        <img src="img/home/icona_piano.png" class="img-fluid rounded shadow icon-style" alt="Icona stilizzata di un pianoforte" loading="lazy">
+        <h3 class="mt-2 text-dark">Pianoforte</h3>
+      </a>
+    </div>
+    <div class="col-md-4 text-center">
+      <a href="lingue.html" class="text-decoration-none">
+        <img src="img/home/icona_lingue.png" class="img-fluid rounded shadow icon-style" alt="Icona stilizzata di un globo con connessioni" loading="lazy">
+        <h3 class="mt-2 text-dark">Lingue</h3>
+      </a>
+    </div>
+    <div class="col-md-4 text-center">
+      <a href="escursioni.html" class="text-decoration-none">
+        <img src="img/home/icona_escursione.png" class="img-fluid rounded shadow icon-style" alt="Icona stilizzata di uno zaino da escursione" loading="lazy">
+        <h3 class="mt-2 text-dark">Escursioni</h3>
+      </a>
+    </div>
+    <div class="col-md-3 text-center">
+      <a href="progetti.html" class="text-decoration-none">
+        <img src="img/home/icona_progetti.png" class="img-fluid rounded shadow icon-style" alt="Icona stilizzata per progetti digitali" loading="lazy">
+        <h3 class="mt-2 text-dark">Progetti</h3>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="skills" class="card">
+  <h2>Competenze</h2>
+  <ul>
+    <li><strong>Sviluppo web</strong> – HTML, CSS, Bootstrap, nozioni di JavaScript</li>
+    <li><strong>Python (base)</strong> – Logica, script semplici</li>
+    <li><strong>Comunicazione multilingue</strong> – Inglese, Spagnolo, Tedesco</li>
+    <li><strong>Strumenti Office</strong> – Word, Excel, PowerPoint</li>
+    <li><strong>Espressione musicale</strong> – Pianoforte e teoria musicale</li>
+  </ul>
+</section>
+
+<section id="cv" class="card">
+  <h2>Scarica il mio CV</h2>
+  <p>Consulta o scarica il mio <strong>curriculum in formato PDF</strong> per scoprire il mio percorso accademico, le competenze e le esperienze:</p>
+  <a href="CV_Batnini_Omar.pdf" target="_blank" download class="btn">Scarica il CV</a>
+</section>
+
+<hr class="my-5" style="border-top: 1px solid #aaa;">
+
+<section id="contatti" class="py-5">
+  <div class="container">
+    <h2 class="text-center fw-bold mb-4">Contattami</h2>
+    <form action="https://formsubmit.co/batniniomar8@gmail.com" method="POST" class="row g-3 mx-auto" style="max-width: 600px;">
+      <input type="text" name="_honey" style="display:none">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="http://151.97.125.211/tecweb/batnini/thankyou.php">
+      <div class="col-md-6">
+        <input type="text" name="Nome" class="form-control" placeholder="Nome" required>
+      </div>
+      <div class="col-md-6">
+        <input type="email" name="Email" class="form-control" placeholder="Email" required>
+      </div>
+      <div class="col-12">
+        <textarea name="Messaggio" class="form-control" rows="4" placeholder="Messaggio" required></textarea>
+      </div>
+      <div class="col-12 text-center">
+        <button type="submit" class="btn btn-orange">Invia</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<section class="follow-card text-center my-5">
+  <div class="follow-box mx-auto">
+    <h2 class="fw-bold mb-4">Seguimi anche su</h2>
+    <div class="d-flex justify-content-center gap-4 flex-wrap">
+      <div class="social-icon-group">
+        <a href="https://instagram.com/omar_batnini" target="_blank" aria-label="Profilo Instagram di Omar Batnini" class="text-decoration-none text-dark-mode-aware">
+          <i class="bi bi-instagram fs-1"></i>
+          <div class="social-label">Instagram</div>
+        </a>
+      </div>
+      <div class="social-icon-group">
+        <a href="https://tiktok.com/@omarbatnini" target="_blank" aria-label="Profilo TikTok di Omar Batnini" class="text-decoration-none text-dark-mode-aware">
+          <i class="bi bi-tiktok fs-1"></i>
+          <div class="social-label">TikTok</div>
+        </a>
+      </div>
+      <div class="social-icon-group">
+        <a href="https://www.linkedin.com/in/omar-batnini-01b618172/" target="_blank" aria-label="Profilo LinkedIn di Omar Batnini" class="text-decoration-none text-dark-mode-aware">
+          <i class="bi bi-linkedin fs-1"></i>
+          <div class="social-label">LinkedIn</div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="text-center my-5">
+  <blockquote class="random-citazione mx-auto">
+    <i class="bi bi-quote fs-2 text-secondary d-block mb-2"></i>
+    <p id="random-quote"></p>
+  </blockquote>
+</section>
+
+<hr class="my-5">
+
+<section class="container text-center my-5">
+  <h2 class="fs-5">
+    Vuoi saperne di più o condividere pensieri? <a href="index.html#contatti" class="btn btn-outline-orange ms-2">Contattami</a>
+  </h2>
+</section>
+
+<section class="text-center">
+  <p class="text-center small mt-4">
+    <a href="#top" class="text-decoration-none"><u>Torna su</u> ↑</a>
+  </p>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <hr class="hr-dark-mode">
+  <div class="container">
+    <!-- Frase -->
+    <div class="row">
+      <div class="col-12">
+        <p class="lead small footer-quote">Vivere, imparare, migliorarsi – ogni giorno un 1% in più.</p>
+      </div>
+    </div>
+
+<!-- Social -->
+  <div class="row mb-2">
+    <div class="col-12">
+      <div class="d-flex justify-content-center gap-3">
+        <a href="https://instagram.com/omar_batnini" target="_blank"><i class="bi bi-instagram footer-icon"></i></a>
+        <a href="https://tiktok.com/@omarbatnini" target="_blank"><i class="bi bi-tiktok footer-icon"></i></a>
+        <a href="https://www.linkedin.com/in/omar-batnini-01b618172/" target="_blank"><i class="bi bi-linkedin footer-icon"></i></a>
+      </div>
+    </div>
+  </div>
+
+    <!-- Navigazione -->
+    <div class="row">
+      <div class="col-12">
+        <ul class="list-inline small mb-1">
+          <li class="list-inline-item mx-2"><a href="index.html#hero" class="footer-link">Home</a></li>
+          <li class="list-inline-item mx-2"><a href="index.html#bio" class="footer-link"><i>About me</i></a></li>
+          <li class="list-inline-item mx-2"><a href="index.html#cv" class="footer-link">CV</a></li>
+          <li class="list-inline-item mx-2"><a href="index.html#contatti" class="footer-link">Contatti</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Banda finale -->
+  <div class="footer-bottom">
+    © 2025 Omar Batnini ◊ Tutti i diritti riservati.
+  </div>
+</footer>
+
+<!-- Script Bootstrap + Tema -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/quotes.js"></script>
+
+<!-- Scrollspy dopo aver caricato Bootstrap script -->
+<script>
+  const scrollSpy = new bootstrap.ScrollSpy(document.body, {
+    target: '#navbar',
+    offset: 70
+  });
+</script>
+
+<!-- Tema Dark mode -->
+<script>
+const themeToggle = document.getElementById('theme-toggle');
+
+if (themeToggle) {
+    const icon = themeToggle.querySelector('i');
+    const label = themeToggle.querySelector('.theme-label');
+
+    const savedTheme = localStorage.getItem('dark-mode');
+    if (savedTheme === 'true') {
+        document.body.classList.add('dark-mode');
+    }
+
+    function updateThemeIcon() {
+        const isDark = document.body.classList.contains('dark-mode');
+        icon.className = isDark ? 'bi bi-moon me-2' : 'bi bi-brightness-high me-2';
+        if (label) {
+            label.textContent = isDark ? 'Tema chiaro' : 'Tema scuro';
+        }
+    }
+
+    themeToggle.addEventListener('click', () => {
+        const isDark = document.body.classList.toggle('dark-mode');
+        localStorage.setItem('dark-mode', isDark);
+        updateThemeIcon();
+    });
+
+    updateThemeIcon();
+}
+</script>
+
+<!-- Inserisci citazioni random -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const heroQuote = document.getElementById('hero-quote');
+    const randomQuote = document.getElementById('random-quote');
+    
+    if (heroQuote) {
+        const quote = getRandomQuote();
+        heroQuote.innerHTML = `"${quote.testo}" <br><span class="blockquote-footer mt-2">${quote.autore}</span>`;
+    }
+    
+    if (randomQuote) {
+        const quote = getRandomQuote();
+        randomQuote.innerHTML = `"${quote.testo}"<br><footer class="blockquote-footer">${quote.autore}</footer>`;
+    }
+});
+</script>
+
+</body>
+</html>

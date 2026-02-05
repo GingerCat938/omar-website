@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <!-- script per eseguire subito lo script ed evitare flash di cambio luce dark mode -->
+    <script>
+  (function() {
+    try {
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const savedTheme = localStorage.getItem('dark-mode');
+      const useDark = savedTheme === 'dark' || (!savedTheme && prefersDark);
+      if (useDark) {
+        document.documentElement.classList.add('dark-mode');
+      }
+    } catch(e) {}
+  })();
+</script>
+<!-- Meta Tags -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Portfolio di uno studente LM-43: carriera accademica, progetti digitali, musica, lingue e sviluppo web.">
+  <meta name="keywords" content="Studente LM-43, Scienze del testo, Portfolio, Web Development, Lingue, Musica, Python, HTML, CSS">
+  <title>Pianoforte – Omar Batnini</title>
+
+<!-- Bootstrap & Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/style.css">
+
+<!-- Favicon O con fulmine e link per adattare a schermi e device -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" href="/favicons/favicon.ico" type="image/x-icon">
+
+<!--Libreria open-source Font awesome per icone-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+
+<!-- OG Tags -->
+  <meta property="og:title" content="Portfolio - Omar Batnini">
+  <meta property="og:site_name" content="Portfolio accademico di Omar Batnini">
+  <meta property="og:url" content="https://omar_batnini.it">
+  <meta property="og:description" content="Lingue, web design, contenuti multimediali e musica. Un percorso creativo e digitale.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://omar_batnini.it/preview.jpg">
+
+<!--libreria AOS per animazioni -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+</head>
+
+<body id="top" data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="70" tabindex="0">
+<!-- Bottone Dark Mode -->
+    <button id="theme-toggle" class="d-flex align-items-center ms-3">
+        <i class="bi bi-brightness-high me-2"></i>
+        <span class="theme-label">Tema scuro</span>
+    </button>
+<!-- Navbar -->
+<nav id="navbar" class="navbar navbar-expand-lg navbar-light shadow-sm py-3">
+  <div class="container">
+
+    <!-- Brand -->
+    <a class="navbar-brand fw-bold" href="index.html#hero">Omar Batnini</a>
+
+    <!-- Bottone hamburger -->
+    <button class="navbar-toggler  ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Menu navigazione -->
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" href="index.html#hero">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html#bio">About me</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html#progetti-interattivi">Sviluppi</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html#cv">CV</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html#contatti">Contatti</a></li>
+      </ul>
+    </div>
+
+  </div>
+</nav>
+
+<main aria-label="Contenuto principale">
+<section class="py-5 text-center">
+    <div class="container">
+      <h1 class="fw-bold">Musica e creatività al pianoforte</h1>
+      <p class="lead" id="hero-quote"></p>
+    </div>
+</section>
+
+<!-- Paragrafo formativo -->
+<section class="container my-5">
+  <div class="card">
+    <h2 class="text-center fw-bold mb-4">Formazione musicale</h2>
+    <p class="mb-4 mx-auto" style="max-width: 700px;">
+      Ho iniziato a suonare il <strong>pianoforte</strong> a <strong>sette anni</strong>, con lezioni private che hanno posto le basi del mio percorso musicale.
+      In seguito ho approfondito lo studio dello strumento al <strong>Conservatorio Vincenzo Bellini di Catania</strong>, dove ho sviluppato <em>competenze tecniche</em> e una <em>sensibilità espressiva</em> che continuano a guidarmi ancora oggi.
+    </p>
+  </div>
+</section>
+
+<!-- Intestazione video -->
+<section class="text-center my-3">
+  <h2 class="fw-bold text-center">Esempi musicali</h2>
+</section>
+
+<!-- Video Section -->
+<section class="container my-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-10 col-xl-9">
+      <div class="ratio ratio-16x9">
+        <video controls class="w-100 rounded shadow" poster="img/piano/cover_video_piano2.jpg" loading="lazy">
+          <source src="video/video_pianoforte.mp4" type="video/mp4">
+          Il tuo browser non supporta il video HTML5.
+        </video>
+      </div>
+      <p class="text-center mt-2">
+        Esempio musicale costituito da clip musicali registrate a casa – <em>2017-2025</em> <br>Foto di <a href="https://unsplash.com/it/@calebmcleanphotography?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Caleb McLean</a> su <a href="https://unsplash.com/it/foto/un-primo-piano-della-mano-di-una-persona-su-un-pianoforte-qBbknsDYnLk?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Introduzione personale -->
+<section class="container text-center my-5">
+  <p class="mx-auto" style="max-width: 800px;">
+    Il <strong>pianoforte</strong> è per me un <em>mezzo di espressione diretto e personale</em>. Dopo oltre <strong>dieci anni di studio</strong>, alternare <strong>brani classici</strong> e <strong>improvvisazioni libere</strong> è diventato parte integrante della mia pratica musicale.
+  </p>
+</section>
+
+<!-- Foto della postazione -->
+<section class="container my-5">
+  <div class="card text-center">
+    <h2 class="fw-bold mb-4">La mia postazione musicale</h2>
+    <p class="mb-4 mx-auto" style="max-width: 700px;">
+      Ogni dettaglio nella mia postazione è pensato per ispirare e facilitare la pratica musicale. Ho raccolto alcuni scorci per mostrarvi dove nascono idee, brani e improvvisazioni.
+    </p>
+  </div>
+
+  <div id="carouselPiano" class="carousel slide carousel-custom mt-4" data-bs-ride="carousel">
+    <div class="carousel-inner rounded shadow">
+      <div class="carousel-item active">
+        <img src="img/piano/piano_me_salotto2.jpg" loading="lazy" class="d-block w-100 carousel-img" alt="Omar al pianoforte in salotto curato che sorride">
+      </div>
+      <div class="carousel-item">
+        <img src="img/piano/piano_verticale_solo2.jpg" loading="lazy" class="d-block w-100 carousel-img" alt="Pianoforte verticale nero chiuso con luce naturale e artificiale che illumina la superficie">
+      </div>
+      <div class="carousel-item">
+        <img src="img/piano/piano_digitale_primo_piano3.jpg" loading="lazy" class="d-block w-100 carousel-img" alt="Pianoforte digitale Yamaha DGX-650 e alcuni libri di studio leggermente visibili su leggio">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselPiano" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselPiano" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+  </div>
+</section>
+
+<section class="text-center follow-box mb-5 mx-auto" style="max-width: 700px;">
+  <p class="fs-5 ">
+    Pubblico clip e idee musicali anche su 
+    <a href="https://tiktok.com/@omarbatnini" target="_blank">
+      <i class="bi bi-tiktok fs-4 align-middle"></i> TikTok
+    </a>.
+  </p>
+</section>
+
+<!-- Collegamento ad altri interessi -->
+<section class="container text-center my-5">
+  <h2 class="fw-bold mb-4">Esplora anche:</h2>
+  <div class="row justify-content-center g-4">
+    <div class="col-md-3 col-6">
+      <a href="lingue.html" class="card-link d-block p-3 rounded shadow-sm h-100 text-decoration-none">
+        <i class="bi bi-translate fs-1 text-orange"></i>
+        <h5 class="mt-2">Lingue</h5>
+      </a>
+    </div>
+    <div class="col-md-3 col-6">
+      <a href="escursioni.html" class="card-link d-block p-3 rounded shadow-sm h-100 text-decoration-none">
+        <i class="bi bi-tree fs-1 text-orange"></i>
+        <h5 class="mt-2">Escursioni</h5>
+      </a>
+    </div>
+    <div class="col-md-3 col-6">
+      <a href="progetti.html" class="card-link d-block p-3 rounded shadow-sm h-100 text-decoration-none">
+        <i class="bi bi-lightbulb fs-1 text-orange"></i>
+        <h5 class="mt-2">Progetti</h5>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Citazione random -->
+<section class="text-center my-5">
+  <blockquote class="random-citazione mx-auto">
+    <i class="bi bi-quote fs-2 text-secondary d-block mb-2"></i>
+    <p id="random-quote"></p>
+  </blockquote>
+</section>
+
+<hr class="my-5">
+
+<section class="container text-center my-5">
+  <h2 class="fs-5">
+    Vuoi saperne di più o condividere pensieri? <a href="index.html#contatti" class="btn btn-outline-orange ms-2">Contattami</a>
+  </h2>
+</section>
+
+<section class="text-center">
+  <p class="text-center small mt-4">
+    <a href="#top" class="text-decoration-none"><u>Torna su</u> ↑</a>
+  </p>
+</section>
+</main>
+
+<footer class="site-footer">
+  <hr class="hr-dark-mode">
+  <div class="container">
+    <!-- Frase -->
+    <div class="row">
+      <div class="col-12">
+        <p class="lead small footer-quote">Vivere, imparare, migliorarsi – ogni giorno un 1% in più.</p>
+      </div>
+    </div>
+
+<!-- Social -->
+  <div class="row mb-2">
+    <div class="col-12">
+      <div class="d-flex justify-content-center gap-3">
+        <a href="https://instagram.com/omar_batnini" target="_blank"><i class="bi bi-instagram footer-icon"></i></a>
+        <a href="https://tiktok.com/@omarbatnini" target="_blank"><i class="bi bi-tiktok footer-icon"></i></a>
+        <a href="https://www.linkedin.com/in/omar-batnini-01b618172/" target="_blank"><i class="bi bi-linkedin footer-icon"></i></a>
+      </div>
+    </div>
+  </div>
+
+    <!-- Navigazione -->
+    <div class="row">
+      <div class="col-12">
+        <ul class="list-inline small mb-1">
+          <li class="list-inline-item mx-2"><a href="index.html#hero" class="footer-link">Home</a></li>
+          <li class="list-inline-item mx-2"><a href="index.html#bio" class="footer-link"><i>About me</i></a></li>
+          <li class="list-inline-item mx-2"><a href="index.html#cv" class="footer-link">CV</a></li>
+          <li class="list-inline-item mx-2"><a href="index.html#contatti" class="footer-link">Contatti</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Banda finale -->
+  <div class="footer-bottom">
+    © 2025 Omar Batnini ◊ Tutti i diritti riservati.
+  </div>
+</footer>
+
+<!-- Script Bootstrap + Tema -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/quotes.js"></script>
+
+<!-- Scrollspy dopo aver caricato Bootstrap script -->
+<script>
+  const scrollSpy = new bootstrap.ScrollSpy(document.body, {
+    target: '#navbar',
+    offset: 70
+  });
+</script>
+
+<!-- Tema Dark mode -->
+<script>
+const themeToggle = document.getElementById('theme-toggle');
+
+if (themeToggle) {
+    const icon = themeToggle.querySelector('i');
+    const label = themeToggle.querySelector('.theme-label');
+
+    const savedTheme = localStorage.getItem('dark-mode');
+    if (savedTheme === 'true') {
+        document.body.classList.add('dark-mode');
+    }
+
+    function updateThemeIcon() {
+        const isDark = document.body.classList.contains('dark-mode');
+        icon.className = isDark ? 'bi bi-moon me-2' : 'bi bi-brightness-high me-2';
+        if (label) {
+            label.textContent = isDark ? 'Tema chiaro' : 'Tema scuro';
+        }
+    }
+
+    themeToggle.addEventListener('click', () => {
+        const isDark = document.body.classList.toggle('dark-mode');
+        localStorage.setItem('dark-mode', isDark);
+        updateThemeIcon();
+    });
+
+    updateThemeIcon();
+}
+</script>
+
+<!-- Inserisci citazioni random -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const heroQuote = document.getElementById('hero-quote');
+    const randomQuote = document.getElementById('random-quote');
+    
+    if (heroQuote) {
+        const quote = getRandomQuote();
+        heroQuote.innerHTML = `"${quote.testo}" <br><span class="blockquote-footer mt-2">${quote.autore}</span>`;
+    }
+    
+    if (randomQuote) {
+        const quote = getRandomQuote();
+        randomQuote.innerHTML = `"${quote.testo}"<br><footer class="blockquote-footer">${quote.autore}</footer>`;
+    }
+});
+</script>
+
+</body>
+</html>
