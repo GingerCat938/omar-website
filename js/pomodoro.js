@@ -43,4 +43,13 @@ function resetPomodoro() {
 
 document.addEventListener('DOMContentLoaded', () => {
     updatePomodoroDisplay();
+    
+    // Aggiungi event listeners ai bottoni
+    const startBtn = document.querySelector('button[class="btn-pomodoro"]:has(i.fa-play)');
+    const pauseBtn = document.querySelector('button[class="btn-pomodoro"]:has(i.fa-pause)');
+    const resetBtn = document.querySelector('button[class="btn-pomodoro"]:has(i.fa-rotate-left)');
+    
+    if (startBtn) startBtn.addEventListener('click', startPomodoro);
+    if (pauseBtn) pauseBtn.addEventListener('click', pausePomodoro);
+    if (resetBtn) resetBtn.addEventListener('click', resetPomodoro);
 });
