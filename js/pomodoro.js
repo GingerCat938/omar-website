@@ -42,8 +42,7 @@ function resetPomodoro() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    updatePomodoroDisplay();
-    
+    updatePomodoroDisplay();    
     // Aggiungi event listeners ai bottoni
     const startBtn = document.querySelector('button[class="btn-pomodoro"]:has(i.fa-play)');
     const pauseBtn = document.querySelector('button[class="btn-pomodoro"]:has(i.fa-pause)');
