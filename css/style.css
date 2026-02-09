@@ -31,10 +31,13 @@
 html {
   scroll-behavior: smooth;
 }
-html.dark-mode {
+
+html.dark-mode,
+body.dark-mode {
   --primary-bg: #0f172a;
   --primary-text: #f1f5f9;
-  /* Altre variabili per la modalità scura */
+  --primary-text: #f1f5f9;
+  --bg-main: #0f172a; /* Altre variabili per la modalità scura */
 }
 
 html.light-mode {
@@ -775,6 +778,11 @@ body.dark-mode .follow-box a i.bi:hover {
 /* 3. Mantieni testo delle etichette social in bianco */
 body.dark-mode .social-label {
   color: var(--light-text)!important;
+}
+/* Prima senza questo non funzionava la modalità dark */
+body.dark-mode #theme-toggle {
+  background-color: var(--accent-color);
+  color: white;
 }
 /* =======================================
    RESPONSIVE
