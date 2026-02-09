@@ -1,23 +1,11 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <!-- script per eseguire subito lo script ed evitare flash di cambio luce dark mode -->
-    <script>
-  (function() {
-    try {
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      const savedTheme = localStorage.getItem('dark-mode');
-      const useDark = savedTheme === 'dark' || (!savedTheme && prefersDark);
-      if (useDark) {
-        document.documentElement.classList.add('dark-mode');
-      }
-    } catch(e) {}
-  })();
-</script>
 <!-- Meta Tags -->
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https:; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://fonts.googleapis.com; font-src 'self' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://fonts.gstatic.com; connect-src 'self' https:; base-uri 'self'; form-action 'self';">
   <meta name="description" content="Portfolio di uno studente LM-43: carriera accademica, progetti digitali, musica, lingue e sviluppo web.">
   <meta name="keywords" content="Studente LM-43, Scienze del testo, Portfolio, Web Development, Lingue, Musica, Python, HTML, CSS">
   <title>Escursioni – Omar Batnini</title>
@@ -52,6 +40,7 @@
 
 <!--libreria AOS per animazioni -->
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <script src="js/theme-init.js" defer></script>
 </head>
 
 <body id="top" data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="70" tabindex="0">
@@ -247,64 +236,10 @@
 
 <!-- Script Bootstrap + Tema -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="js/quotes.js"></script>
-
-<!-- Scrollspy dopo aver caricato Bootstrap script -->
-<script>
-  const scrollSpy = new bootstrap.ScrollSpy(document.body, {
-    target: '#navbar',
-    offset: 70
-  });
-</script>
-
-<!-- Tema Dark mode -->
-<script>
-const themeToggle = document.getElementById('theme-toggle');
-
-if (themeToggle) {
-    const icon = themeToggle.querySelector('i');
-    const label = themeToggle.querySelector('.theme-label');
-
-    const savedTheme = localStorage.getItem('dark-mode');
-    if (savedTheme === 'true') {
-        document.body.classList.add('dark-mode');
-    }
-
-    function updateThemeIcon() {
-        const isDark = document.body.classList.contains('dark-mode');
-        icon.className = isDark ? 'bi bi-moon me-2' : 'bi bi-brightness-high me-2';
-        if (label) {
-            label.textContent = isDark ? 'Tema chiaro' : 'Tema scuro';
-        }
-    }
-
-    themeToggle.addEventListener('click', () => {
-        const isDark = document.body.classList.toggle('dark-mode');
-        localStorage.setItem('dark-mode', isDark);
-        updateThemeIcon();
-    });
-
-    updateThemeIcon();
-}
-</script>
-
-<!-- Inserisci citazioni random -->
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const heroQuote = document.getElementById('hero-quote');
-    const randomQuote = document.getElementById('random-quote');
-    
-    if (heroQuote) {
-        const quote = getRandomQuote();
-        heroQuote.innerHTML = `"${quote.testo}" <br><span class="blockquote-footer mt-2">${quote.autore}</span>`;
-    }
-    
-    if (randomQuote) {
-        const quote = getRandomQuote();
-        randomQuote.innerHTML = `"${quote.testo}"<br><footer class="blockquote-footer">${quote.autore}</footer>`;
-    }
-});
-</script>
+<script src="js/scrollspy.js" defer></script>
+<script src="js/theme.js" defer></script>
+<script src="js/quotes.js" defer></script>
+<script src="js/quotes-init.js" defer></script>
 
 </body>
 </html>

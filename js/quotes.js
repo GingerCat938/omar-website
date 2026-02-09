@@ -56,11 +56,28 @@ function getRandomQuote() {
     return citazioni[Math.floor(Math.random() * citazioni.length)];
 }
 
-// Funzione per inserire citazione nel DOM
+// Funzione per inserire citazione nel DOM (senza innerHTML)
 function insertRandomQuote(elementId) {
     const quote = getRandomQuote();
     const element = document.getElementById(elementId);
-    if (element) {
-        element.innerHTML = `"${quote.testo}" <br><span class="blockquote-footer">${quote.autore}</span>`;
-    }
+    
+    if (!element) return;
+    
+    // Svuota l'elemento
+    element.textContent = '';
+    
+    // Crea il paragrafo con il testo della citazione
+    const p = document.createElement('p');
+    p.textContent = `"${quote.testo}"`;
+    element.appendChild(p);
+    
+    // Crea il break
+    const br = document.createElement('br');
+    element.appendChild(br);
+    
+    // Crea il footer/span per l'autore
+    const footer = document.createElement('footer');
+    footer.className = 'blockquote-footer';
+    footer.textContent = quote.autore;
+    element.appendChild(footer);
 }
